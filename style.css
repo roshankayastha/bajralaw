@@ -1914,3 +1914,171 @@ body.modal-open {
     }
 }
 
+/* ==========================================================================
+   PRACTICE AREA SUBPAGES
+   ========================================================================== */
+
+/* Services Detail Grid */
+.services-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-detail-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.service-detail-card:hover {
+    box-shadow: 0 10px 30px rgba(10, 31, 68, 0.08);
+    transform: translateY(-4px);
+    border-color: var(--accent-color);
+}
+
+.service-detail-icon {
+    color: var(--accent-color);
+    margin-bottom: 1.25rem;
+}
+
+.service-detail-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.service-detail-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* Practice Overview Cards (used in "Other Practice Areas" section) */
+.practice-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.practice-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.practice-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    height: 100%;
+    transition: var(--transition);
+}
+
+.practice-card-link:hover .practice-card {
+    box-shadow: 0 12px 30px rgba(10, 31, 68, 0.1);
+    border-color: var(--accent-color);
+    transform: translateY(-4px);
+}
+
+.practice-card h4 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.practice-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.practice-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    letter-spacing: 0.02em;
+}
+
+.practice-card-link:hover .practice-link {
+    color: var(--accent-dark);
+}
+
+/* Practice Overview Page Cards (on practice.html) */
+.practice-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.practice-overview-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.practice-overview-card:hover {
+    box-shadow: 0 15px 40px rgba(10, 31, 68, 0.1);
+    transform: translateY(-5px);
+}
+
+.practice-overview-img {
+    height: 220px;
+    overflow: hidden;
+}
+
+.practice-overview-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.practice-overview-card:hover .practice-overview-img img {
+    transform: scale(1.05);
+}
+
+.practice-overview-body {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.practice-overview-body h3 {
+    font-size: 1.35rem;
+    margin-bottom: 1rem;
+}
+
+.practice-overview-body p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+    flex: 1;
+}
+
+.practice-overview-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    letter-spacing: 0.02em;
+    transition: var(--transition);
+    align-self: flex-start;
+}
+
+.practice-overview-card:hover .practice-overview-btn {
+    color: var(--accent-dark);
+    gap: 0.75rem;
+}
+
+
