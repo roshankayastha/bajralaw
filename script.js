@@ -377,4 +377,51 @@ document.addEventListener('DOMContentLoaded', () => {
             subjectInput.value = 'Legal Consultation Request';
         }
     }
+
+    // 8. Dynamic Team Member Loading
+    const teamGrid = document.getElementById('teamGrid');
+    if (teamGrid) {
+        fetch('assets/team.json')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to load team data');
+                }
+                return response.json();
+            })
+            .then(data => {
+                const members = data.members || [];
+                teamGrid.innerHTML = '';
+
+                if (members.length === 0) {
+                    teamGrid.innerHTML = '<p class="no-members">No team members found.</p>';
+                    return;
+                }
+
+                members.forEach(member => {
+                    const card = document.createElement('div');
+                    card.className = 'team-member';
+                    card.innerHTML = `
+                        <div class="team-img-wrap">
+                            <img src="${member.image || 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=500&q=80'}" alt="${member.name}, ${member.role}">
+                        </div>
+                        <div class="team-info">
+                            <h4>${member.name}</h4>
+                            <span class="team-role">${member.role}</span>
+                            <p class="team-bio">${member.bio || ''}</p>
+                            ${member.email ? `
+                            <a href="mailto:${member.email}" class="team-contact">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                ${member.email}
+                            </a>
+                            ` : ''}
+                        </div>
+                    `;
+                    teamGrid.appendChild(card);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching team members:', error);
+                teamGrid.innerHTML = '<p class="error-message">Error loading team members. Please try again later.</p>';
+            });
+    }
 });

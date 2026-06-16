@@ -9,7 +9,7 @@ public_folder: "/assets"
 
 collections:
   - name: "content"
-    label: "News Content"
+    label: "Website Content"
     delete: false
     files:
       - name: "articles"
@@ -29,3 +29,19 @@ collections:
               - { label: "Image URL", name: "image", widget: "string" }
               - { label: "Excerpt", name: "excerpt", widget: "text" }
               - { label: "Content", name: "content", widget: "markdown" }
+      - name: "team"
+        label: "Meet Our Team"
+        file: "assets/team.json"
+        format: "json"
+        fields:
+          - name: "members"
+            label: "Team Members"
+            label_singular: "Team Member"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Full Name", name: "name", widget: "string" }
+              - { label: "Role / Title", name: "role", widget: "string" }
+              - { label: "Photo URL", name: "image", widget: "image" }
+              - { label: "Short Bio", name: "bio", widget: "text" }
+              - { label: "Contact Email", name: "email", widget: "string" }
