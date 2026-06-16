@@ -251,15 +251,21 @@ img {
 .logo-icon {
     width: 45px;
     height: 45px;
-    background-color: var(--primary-color);
+    background-color: #0a1f44;
     border: 2px solid var(--accent-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-heading);
-    color: var(--accent-color);
-    font-weight: 700;
-    font-size: 1.25rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #0a1f44;
+    transform: scale(1.4);
 }
 
 .logo-text {
@@ -783,7 +789,7 @@ img {
 
 .footer-about .logo-icon {
     border-color: var(--accent-color);
-    background-color: var(--primary-light);
+    background-color: #0a1f44;
 }
 
 .footer-about .logo-title {

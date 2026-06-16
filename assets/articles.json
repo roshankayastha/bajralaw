@@ -1,0 +1,52 @@
+{
+  "articles": [
+    {
+      "title": "Doing Business in Nepal: A Legal Guide for Foreign Investors (2026)",
+      "date": "June 10, 2026",
+      "category": "FDI & Investment",
+      "image": "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&h=500&q=80",
+      "excerpt": "An overview of foreign investment guidelines in Nepal, outlining registration processes, minimum investment limits, and profit repatriation approvals from Nepal Rastra Bank.",
+      "content": "Nepal is increasingly becoming an attractive destination for foreign direct investment (FDI), particularly in hydropower, tourism, and services. The foreign investment regime is governed by the Foreign Investment and Technology Transfer Act (FITTA) and its recent updates.\n\n#### Approval Authorities & Process\nDepending on the scale of investment, approval is granted either by the Department of Industries (DOI) or the Investment Board Nepal (IBN):\n* Projects with investments up to NPR 6 Billion are handled by the Department of Industries (DOI).\n* Projects exceeding NPR 6 Billion or specific mega-projects are governed by the Investment Board Nepal (IBN).\n\n#### Key Highlights for Investors in 2026\nThe Government of Nepal has introduced streamlined rules to boost international confidence. The newly established single-window service has automated registration, taxation, and customs processes under one platform. However, the minimum threshold regulations require companies to bring in the approved capital within specified timelines.\n\n#### Repatriation Rules\nForeign investors are legally entitled to repatriate dividends, equity sale proceeds, and interest payments on foreign loans. However, all repatriations require prior clearance from the Department of Industries and approval from Nepal Rastra Bank (the central bank) to ensure compliance with foreign exchange regulations."
+    },
+    {
+      "title": "Amendments to the Companies Act: Key Compliance Takeaways",
+      "date": "May 24, 2026",
+      "category": "Corporate Regulation",
+      "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&h=500&q=80",
+      "excerpt": "A detailed look at the latest updates regarding corporate filings, virtual general meetings, and stricter governance compliance for board of directors under the amended Companies Act.",
+      "content": "The legislative updates to the Companies Act introduce significant steps toward complete corporate digitization and governance oversight. The revisions aim to enhance business transparency while reducing administrative overheads.\n\n#### 1. Mandatory Electronic Filings\nAll registered companies are now required to submit their annual corporate filings, audit reports, and shareholder registers online through the OCR portal. Manual filings will be phased out, and delays will trigger automated penalty structures.\n\n#### 2. Legal Recognition of Virtual AGMs\nFollowing temporary practices, the amended act permanently recognizes virtual and hybrid Annual General Meetings. Companies must follow strict protocols regarding shareholder verification, secure digital voting, and accurate proxy registration.\n\n#### 3. Enhanced Board Accountability\nBoard directors face higher scrutiny. Conflicts of interest must be disclosed immediately, failing which directors can face personal liability for transactions that harm shareholder interests. Stricter records of accounts must be accessible for corporate auditors at all times."
+    },
+    {
+      "title": "Understanding Arbitration and Dispute Clauses in Nepalese Joint Ventures",
+      "date": "April 12, 2026",
+      "category": "Dispute Resolution",
+      "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&h=500&q=80",
+      "excerpt": "This article analyzes common pitfalls in formulating arbitration clauses in joint venture agreements and the process of enforcing international awards in Nepal's court system.",
+      "content": "Drafting a clear dispute resolution clause is critical when entering joint ventures with foreign parties in Nepal. The local Arbitration Act governs domestic and international arbitrations, but careful drafting is required to avoid jurisdictional logjams.\n\n#### Choosing the Right Seat and Venue\nParties often confuse the seat of arbitration (the legal jurisdiction governing the arbitration) with the physical venue. Selecting a foreign seat like Singapore or London is common for cross-border deals, but the contract must explicitly detail the governing procedural law.\n\n#### Enforcement of Foreign Arbitral Awards\nNepal is a party to the New York Convention on the Recognition and Enforcement of Foreign Arbitral Awards. Despite this, enforcing a foreign award requires an application to the High Court of Nepal, which will check for reciprocity and ensure that the award does not violate the public policy of Nepal.\n\n#### Recommendations for JV Partners\nAlways specify the number of arbitrators (typically three), the appointing authority in case of default, the language of the proceedings, and explicitly outline interim relief mechanisms to preserve assets while the dispute is pending."
+    },
+    {
+      "title": "Legal Framework of Project Financing and Infrastructure Lending in Nepal",
+      "date": "March 05, 2026",
+      "category": "Banking & Project Finance",
+      "image": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&h=500&q=80",
+      "excerpt": "A comprehensive review of the security creation process, syndication compliance, and legal safeguards involved in infrastructure and hydro project funding in Nepal.",
+      "content": "Large-scale infrastructure projects, especially in the run-of-the-river hydropower sector, are capital-intensive and depend heavily on project finance structures. The legal framework protects lenders while facilitating the developer's execution capability.\n\n#### Security Creation Package\nLenders protect their capital by creating a comprehensive security package. This includes registering mortgages over project land, hypothecation of plant machinery, assignment of project agreements (like Power Purchase Agreements - PPAs), and corporate/personal guarantees.\n\n#### Escrow Accounts and Waterfalls\nUnder central bank guidelines, infrastructure developers must route all revenues through designated Escrow Accounts. The account operates on a strict payment waterfall mechanism: prioritizing operating expenses, debt service, reserve funds, and lastly, dividend distributions.\n\n#### Direct Agreements\nDirect Agreements between the government, developer, and lenders are increasingly used to specify step-in rights. In case of developer default, lenders have the legal right to step in, take control of the project, and appoint a substitute developer to complete the project."
+    },
+    {
+      "title": "Corporate Income Tax and Double Taxation Avoidance Agreements in Nepal",
+      "date": "Feb 18, 2026",
+      "category": "Taxation",
+      "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&h=500&q=80",
+      "excerpt": "An analysis of corporate tax brackets, DTAA implementation protocols, and compliance obligations for MNCs operating inside Nepalese jurisdiction.",
+      "content": "Foreign entities operating in Nepal must design their corporate structures with tax efficiency in mind. The Income Tax Act of Nepal governs corporate taxes, capital gains, and withholding obligations.\n\n#### Double Taxation Avoidance Agreements (DTAA)\nNepal has signed DTAAs with several nations, including India, China, Mauritius, and Norway. These agreements allow foreign companies to avoid paying tax on the same income in both jurisdictions or qualify for reduced withholding tax rates on dividends, interest, and royalties.\n\n#### Transfer Pricing Regulations\nThe Inland Revenue Department (IRD) is intensifying its focus on transfer pricing. Under local laws, transactions between associated enterprises (parent and subsidiary) must be conducted at arm's length. Detailed documentation must be maintained to justify price settings for inter-company service charges.\n\n#### Withholding Tax (WHT) Compliance\nNon-residents providing services to a Nepalese business are subject to withholding tax at source, typically ranging from 1.5% to 15% depending on the service type. It is crucial to determine who bears the WHT burden in contractual negotiations to avoid unexpected operational expenses."
+    },
+    {
+      "title": "A Guide to the Labour Act and Employment Contracts in Nepal",
+      "date": "Jan 15, 2026",
+      "category": "Employment Law",
+      "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&h=500&q=80",
+      "excerpt": "Summarizing employer compliance, mandatory contribution funds, retrenchment legal protocols, and rules governing foreign workers under the Labour Act of Nepal.",
+      "content": "The Labour Act provides the core legal guidelines regulating employment relations, benefits, and safety standards in Nepal. Clear, compliant employment contracts are essential for preventing workplace disputes.\n\n#### Classification of Employees\nThe law outlines five classifications of employment contracts:\n* Regular Employment: Standard permanent hiring.\n* Time-Bound Employment: Fixed-term contract.\n* Work-Based Employment: Hired for a specific task.\n* Casual Employment: Part-time or occasional work.\n* Part-Time Employment: Fixed hours less than normal working days.\n\n#### Mandatory Social Security Fund (SSF)\nThe Social Security Act mandates registration with the Social Security Fund. Employers must contribute 20% and employees contribute 11% of the basic salary, which covers medical insurance, accident insurance, maternity benefits, and pension funds.\n\n#### Termination and Grievance Redressal\nTermination must follow strict legal procedures. Employees cannot be terminated without a valid performance review process or disciplinary inquiry. Collective redundancy (retrenchment) requires notifying the Ministry of Labour and paying statutory severance fees."
+    }
+  ]
+}
