@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
 
     // Pages that belong under "Practice Areas"
-    const practicePages = ['corporate.html', 'litigation.html', 'banking.html', 'mergers.html', 'practice.html'];
+    const practicePages = ['science-tech.html', 'litigation.html', 'foreign-counsel.html', 'legislative-review.html', 'capacity-building.html', 'evolving-law.html', 'practice.html'];
     const isPracticePage = practicePages.includes(pageName);
 
     navLinks.forEach(link => {
