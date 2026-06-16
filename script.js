@@ -19,8 +19,34 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.toggle('menu-open');
         });
 
-        // Close menu when a link is clicked
+        // Mobile: tap the Practice Areas nav-item link to toggle dropdown
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            const trigger = item.querySelector('.nav-link');
+            if (trigger) {
+                trigger.addEventListener('click', (e) => {
+                    // Only intercept on mobile (hamburger visible)
+                    if (window.getComputedStyle(hamburger).display !== 'none') {
+                        e.preventDefault();
+                        item.classList.toggle('is-open');
+                    }
+                });
+            }
+        });
+
+        // Close menu when a non-dropdown link is clicked
         navLinks.forEach(link => {
+            if (!link.closest('.nav-item') && !link.closest('.nav-dropdown')) {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('is-active');
+                    navMenu.classList.remove('is-active');
+                    document.body.classList.remove('menu-open');
+                });
+            }
+        });
+
+        // Close menu when a dropdown sub-link is clicked
+        document.querySelectorAll('.nav-dropdown a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('is-active');
                 navMenu.classList.remove('is-active');
@@ -28,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
 
     // 2. Sticky Header Shrink on Scroll
     const header = document.querySelector('.header');
@@ -42,10 +69,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Highlight Active Navigation Item Based on URL
     const currentPath = window.location.pathname;
     const pageName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-    
+
+    // Pages that belong under "Practice Areas"
+    const practicePages = ['corporate.html', 'litigation.html', 'banking.html', 'mergers.html', 'practice.html'];
+    const isPracticePage = practicePages.includes(pageName);
+
     navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        if (pageName === linkPath || (pageName === '' && linkPath === 'index.html')) {
+        const linkHref = link.getAttribute('href');
+        // Skip dropdown sub-links
+        if (link.closest('.nav-dropdown')) return;
+
+        if (isPracticePage && linkHref === 'practice.html') {
+            link.classList.add('active');
+        } else if (!isPracticePage && (pageName === linkHref || (pageName === '' && linkHref === 'index.html'))) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');

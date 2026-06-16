@@ -323,7 +323,74 @@ img {
     width: 100%;
 }
 
-/* Mobile Menu Toggle */
+/* Nav Dropdown */
+.nav-item {
+    position: relative;
+}
+
+.nav-item > .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.nav-item > .nav-link .dropdown-arrow {
+    width: 10px;
+    height: 10px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.nav-item:hover > .nav-link .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-dropdown {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-top: 3px solid var(--accent-color);
+    min-width: 220px;
+    box-shadow: 0 10px 30px rgba(10, 31, 68, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 200;
+    list-style: none;
+    padding: 0.5rem 0;
+}
+
+.nav-item:hover .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown li a {
+    display: block;
+    padding: 0.65rem 1.25rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    text-transform: none;
+    letter-spacing: 0;
+    white-space: nowrap;
+    transition: var(--transition);
+    border-left: 3px solid transparent;
+}
+
+.nav-dropdown li a:hover {
+    color: var(--accent-color);
+    background: var(--bg-light);
+    border-left-color: var(--accent-color);
+    padding-left: 1.5rem;
+}
+
+
 .hamburger {
     display: none;
     cursor: pointer;
@@ -1602,11 +1669,46 @@ textarea.form-control {
     .nav-link {
         font-size: 1.1rem;
     }
-    
+
+    /* Mobile dropdown: inline, not floating */
+    .nav-dropdown {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+        border: none;
+        border-top: none;
+        border-left: 3px solid var(--accent-color);
+        background: var(--bg-light);
+        display: none;
+        min-width: unset;
+        padding: 0.25rem 0;
+        margin-top: 0.5rem;
+    }
+
+    .nav-item.is-open .nav-dropdown {
+        display: block;
+    }
+
+    .nav-dropdown li a {
+        font-size: 0.95rem;
+        padding: 0.55rem 1.5rem;
+    }
+
+    .nav-item > .nav-link .dropdown-arrow {
+        display: inline-block;
+    }
+
+    .nav-item.is-open > .nav-link .dropdown-arrow {
+        transform: rotate(180deg);
+    }
+
     .slide-content h1 {
         font-size: 2.5rem;
     }
     
+
     .slide-content p {
         font-size: 1.1rem;
     }
