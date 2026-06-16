@@ -1656,8 +1656,10 @@ textarea.form-control {
         background-color: var(--bg-white);
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 2.5rem;
+        justify-content: flex-start;
+        padding: 3rem 1.5rem;
+        gap: 1.75rem;
+        overflow-y: auto;
         transition: left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
         z-index: 999;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
@@ -1680,21 +1682,37 @@ textarea.form-control {
         box-shadow: none;
         border: none;
         border-top: none;
-        border-left: 3px solid var(--accent-color);
+        border-left: none;
         background: var(--bg-light);
         display: none;
-        min-width: unset;
-        padding: 0.25rem 0;
-        margin-top: 0.5rem;
+        min-width: 260px;
+        padding: 0.5rem 0;
+        margin-top: 0.75rem;
+        border-radius: 4px;
     }
 
     .nav-item.is-open .nav-dropdown {
         display: block;
     }
 
+    /* Override desktop hover translation on mobile */
+    .nav-item:hover .nav-dropdown {
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+    }
+
     .nav-dropdown li a {
         font-size: 0.95rem;
-        padding: 0.55rem 1.5rem;
+        padding: 0.65rem 1rem;
+        text-align: center;
+        border-left: none;
+    }
+
+    .nav-dropdown li a:hover {
+        border-left-color: transparent;
+        padding-left: 1rem;
+        background-color: rgba(10, 31, 68, 0.05);
     }
 
     .nav-item > .nav-link .dropdown-arrow {
