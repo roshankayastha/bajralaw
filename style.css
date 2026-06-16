@@ -326,6 +326,7 @@ img {
 /* Nav Dropdown */
 .nav-item {
     position: relative;
+    list-style: none;
 }
 
 .nav-item > .nav-link {
