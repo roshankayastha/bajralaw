@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (slides.length > 0) {
         let currentSlide = 0;
         let slideInterval;
-        const intervalTime = 6000; // 6 seconds per slide
+        const intervalTime = 5000; // 5 seconds per slide
 
         // Create Navigation Dots
         slides.forEach((_, index) => {
