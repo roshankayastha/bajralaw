@@ -15,7 +15,7 @@ collections:
     delete: false
     files:
       - name: "articles"
-        label: "News & Publications"
+        label: "Publications"
         file: "assets/articles.json"
         format: "json"
         fields:
