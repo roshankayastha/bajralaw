@@ -1,6 +1,6 @@
 /* ==========================================================================
    BAJRA LAW & ASSOCIATES - Design System & Custom Stylesheet
-   Theme: Deep Navy Blue (#0a1f44) & Gold (#c9a84c)
+   Theme: Imperial Forest Green (#0f2b20) & Gold (#c9a84c)
    ========================================================================== */
 
 /* Google Fonts Import */
@@ -8,9 +8,9 @@
 
 /* CSS Variables */
 :root {
-    --primary-color: #0a1f44;
-    --primary-light: #153061;
-    --primary-dark: #051026;
+    --primary-color: #0f2b20;
+    --primary-light: #1d3f32;
+    --primary-dark: #071510;
     --accent-color: #c9a84c;
     --accent-light: #dfbe60;
     --accent-dark: #aa8935;
@@ -252,7 +252,7 @@ img {
     position: relative;
     width: 45px;
     height: 45px;
-    background-color: #0a1f44;
+    background-color: var(--primary-color);
     border: 2px solid var(--accent-color);
     display: flex;
     align-items: center;
@@ -293,7 +293,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background-color: #0a1f44;
+    background-color: var(--primary-color);
     transform: scale(1.4);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -891,7 +891,7 @@ img {
 
 .footer-about .logo-icon {
     border-color: var(--accent-color);
-    background-color: #0a1f44;
+    background-color: var(--primary-color);
 }
 
 .footer-about .logo-title {
