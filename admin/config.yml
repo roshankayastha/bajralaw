@@ -47,3 +47,30 @@ collections:
               - { label: "Photo URL", name: "image", widget: "image" }
               - { label: "Short Bio", name: "bio", widget: "text" }
               - { label: "Contact Email", name: "email", widget: "string" }
+      - name: "settings"
+        label: "Global Settings & Contacts"
+        file: "assets/settings.json"
+        format: "json"
+        fields:
+          - { label: "Phone Number", name: "phone", widget: "string" }
+          - { label: "Phone Link (tel:)", name: "phone_href", widget: "string" }
+          - { label: "Email Address", name: "email", widget: "string" }
+          - { label: "Office Location Address", name: "address", widget: "text" }
+          - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+          - { label: "Homepage Promise Quote", name: "promise_quote", widget: "text" }
+      - name: "homepage"
+        label: "Homepage Slider Banners"
+        file: "assets/homepage.json"
+        format: "json"
+        fields:
+          - name: "slides"
+            label: "Hero Slides"
+            label_singular: "Hero Slide"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Image Background", name: "image", widget: "image" }
+              - { label: "Slide Title (HTML supported)", name: "title", widget: "string" }
+              - { label: "Slide Subtitle / Description", name: "subtitle", widget: "text" }
+              - { label: "Button Label", name: "button_text", widget: "string" }
+              - { label: "Button Destination Link", name: "button_link", widget: "string" }

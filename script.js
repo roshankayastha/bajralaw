@@ -6,6 +6,9 @@
 const WEB3FORMS_ACCESS_KEY = '921ce6af-301c-43ce-aac0-46796b49c943';
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Load dynamic global settings
+    loadGlobalSettings();
+
     // 1. Mobile Menu Hamburger Toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -89,86 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 4. Hero Slider Logic (Only on Index Page)
-    const slides = document.querySelectorAll('.slide');
-    const prevBtn = document.querySelector('.slider-btn-prev');
-    const nextBtn = document.querySelector('.slider-btn-next');
-    const dotsContainer = document.querySelector('.slider-dots');
-
-    if (slides.length > 0) {
-        let currentSlide = 0;
-        let slideInterval;
-        const intervalTime = 8000; // 8 seconds per slide
-
-        // Create Navigation Dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.classList.add('slider-dot');
-            if (index === 0) dot.classList.add('active');
-            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                resetInterval();
-            });
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = document.querySelectorAll('.slider-dot');
-
-        function updateSlider() {
-            slides.forEach((slide, idx) => {
-                if (idx === currentSlide) {
-                    slide.classList.add('active');
-                    dots[idx].classList.add('active');
-                } else {
-                    slide.classList.remove('active');
-                    dots[idx].classList.remove('active');
-                }
-            });
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            updateSlider();
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            updateSlider();
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlider();
-        }
-
-        // Add Event Listeners for controls
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetInterval();
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetInterval();
-            });
-        }
-
-        // Auto play function
-        function startInterval() {
-            slideInterval = setInterval(nextSlide, intervalTime);
-        }
-
-        function resetInterval() {
-            clearInterval(slideInterval);
-            startInterval();
-        }
-
-        // Start slider
-        startInterval();
-    }
+    loadHomepageSlider();
 
     // 5. Contact Form Submission (Only on Contact Page)
     const contactForm = document.getElementById('contactForm');
@@ -461,3 +385,228 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 });
+
+/**
+ * Helper: Initialize Slider Functionality
+ */
+function initSlider() {
+    const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.slider-btn-prev');
+    const nextBtn = document.querySelector('.slider-btn-next');
+    const dotsContainer = document.querySelector('.slider-dots');
+
+    if (slides.length > 0) {
+        let currentSlide = 0;
+        let slideInterval;
+        const intervalTime = 8000; // 8 seconds per slide
+
+        if (dotsContainer) {
+            dotsContainer.innerHTML = '';
+        }
+
+        // Create Navigation Dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetInterval();
+            });
+            if (dotsContainer) {
+                dotsContainer.appendChild(dot);
+            }
+        });
+
+        const dots = document.querySelectorAll('.slider-dot');
+
+        function updateSlider() {
+            slides.forEach((slide, idx) => {
+                if (idx === currentSlide) {
+                    slide.classList.add('active');
+                    if (dots[idx]) dots[idx].classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                    if (dots[idx]) dots[idx].classList.remove('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
+            });
+        }
+
+        function startInterval() {
+            slideInterval = setInterval(nextSlide, intervalTime);
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+        }
+
+        startInterval();
+    }
+}
+
+/**
+ * Helper: Fetch and Populate Homepage Slider Banners from JSON
+ */
+function loadHomepageSlider() {
+    const sliderWrapper = document.querySelector('.slider-wrapper');
+    if (!sliderWrapper) return;
+
+    fetch('assets/homepage.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load homepage slider data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const slidesData = data.slides || [];
+            if (slidesData.length === 0) {
+                initSlider();
+                return;
+            }
+
+            sliderWrapper.innerHTML = '';
+
+            slidesData.forEach((slide, index) => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = `slide ${index === 0 ? 'active' : ''}`;
+                
+                const cleanAlt = (slide.title || '').replace(/<[^>]*>/g, '');
+                
+                slideDiv.innerHTML = `
+                    <img src="${slide.image}" alt="${cleanAlt}" class="slide-img" ${index === 0 ? 'style="object-position: center top;"' : ''}>
+                    <div class="container">
+                        <div class="slide-content">
+                            <h1>${slide.title}</h1>
+                            <p>${slide.subtitle}</p>
+                            <a href="${slide.button_link}" class="btn btn-accent">${slide.button_text}</a>
+                        </div>
+                    </div>
+                `;
+                sliderWrapper.appendChild(slideDiv);
+            });
+
+            initSlider();
+        })
+        .catch(error => {
+            console.warn('Error loading dynamic slider, using fallback HTML:', error);
+            initSlider();
+        });
+}
+
+/**
+ * Helper: Fetch and Populate Global settings and contact details
+ */
+function loadGlobalSettings() {
+    fetch('assets/settings.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to load global settings');
+            }
+            return response.json();
+        })
+        .then(settings => {
+            // 1. Update phone links
+            if (settings.phone) {
+                const topPhoneLink = document.querySelector('.topbar-contact a[href^="tel:"]');
+                if (topPhoneLink) {
+                    const svg = topPhoneLink.querySelector('svg');
+                    topPhoneLink.innerHTML = '';
+                    if (svg) topPhoneLink.appendChild(svg);
+                    topPhoneLink.appendChild(document.createTextNode(' ' + settings.phone));
+                    if (settings.phone_href) {
+                        topPhoneLink.setAttribute('href', `tel:${settings.phone_href}`);
+                    }
+                }
+
+                const footerPhoneContainer = document.querySelector('.footer-contact li:nth-child(2)');
+                if (footerPhoneContainer) {
+                    const span = footerPhoneContainer.querySelector('span');
+                    if (span) {
+                        span.textContent = settings.phone;
+                    }
+                }
+            }
+
+            // 2. Update email links
+            if (settings.email) {
+                const topEmailLink = document.querySelector('.topbar-contact a[href*="mailto:"], .topbar-contact a[href*="bajralaw@gmail.com"]');
+                if (topEmailLink) {
+                    const svg = topEmailLink.querySelector('svg');
+                    topEmailLink.innerHTML = '';
+                    if (svg) topEmailLink.appendChild(svg);
+                    topEmailLink.appendChild(document.createTextNode(' ' + settings.email));
+                    topEmailLink.setAttribute('href', `https://mail.google.com/mail/?view=cm&fs=1&to=${settings.email}`);
+                }
+
+                const footerEmailContainer = document.querySelector('.footer-contact li:nth-child(3)');
+                if (footerEmailContainer) {
+                    const span = footerEmailContainer.querySelector('span');
+                    if (span) {
+                        span.textContent = settings.email;
+                    }
+                }
+            }
+
+            // 3. Update address
+            if (settings.address) {
+                const footerAddressContainer = document.querySelector('.footer-contact li:nth-child(1)');
+                if (footerAddressContainer) {
+                    const span = footerAddressContainer.querySelector('span');
+                    if (span) {
+                        span.innerHTML = settings.address.replace(/\n/g, '<br>');
+                    }
+                }
+            }
+
+            // 4. Update LinkedIn
+            if (settings.linkedin) {
+                const linkedinLinks = document.querySelectorAll('a[href*="linkedin.com/company/"]');
+                linkedinLinks.forEach(link => {
+                    link.setAttribute('href', settings.linkedin);
+                });
+            }
+
+            // 5. Update promise quote on homepage
+            if (settings.promise_quote) {
+                const promiseQuote = document.getElementById('promiseQuote');
+                if (promiseQuote) {
+                    promiseQuote.textContent = `"${settings.promise_quote.replace(/^"|"$/g, '')}"`;
+                }
+            }
+        })
+        .catch(error => {
+            console.warn('Error loading global settings, using fallback HTML:', error);
+        });
+}
