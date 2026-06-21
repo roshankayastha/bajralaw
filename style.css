@@ -1794,7 +1794,8 @@ textarea.form-control {
     }
     
     .slider-dots {
-        bottom: 1rem;
+        top: 210px;
+        bottom: auto;
     }
     
     .section {
@@ -1853,6 +1854,11 @@ textarea.form-control {
     .slide-content p {
         font-size: 0.85rem;
         margin-bottom: 1rem;
+    }
+    
+    .slider-dots {
+        top: 175px;
+        bottom: auto;
     }
     
     .logo-title {
