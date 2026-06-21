@@ -1730,18 +1730,59 @@ textarea.form-control {
         transform: rotate(180deg);
     }
 
-    .slide-content h1 {
-        font-size: 2.5rem;
+    .hero-slider-container {
+        height: 520px;
+        min-height: unset;
     }
     
-
+    .slide {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+    
+    .slide-img {
+        position: relative;
+        height: 240px;
+        width: 100%;
+        object-fit: cover;
+        filter: brightness(0.65);
+    }
+    
+    .slide-content {
+        position: relative;
+        padding: 2rem 1.5rem;
+        background-color: var(--primary-dark);
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transform: translateY(15px);
+        transition: all 0.8s ease 0.5s;
+    }
+    
+    .slide.active .slide-content {
+        transform: translateY(0);
+    }
+    
+    .slide-content h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+    
     .slide-content p {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+        color: rgba(255, 255, 255, 0.8);
     }
     
     .slider-btn {
         width: 40px;
         height: 40px;
+        top: 120px;
+        transform: translateY(-50%);
     }
     
     .slider-btn-prev {
@@ -1750,6 +1791,10 @@ textarea.form-control {
     
     .slider-btn-next {
         right: 0.5rem;
+    }
+    
+    .slider-dots {
+        bottom: 1rem;
     }
     
     .section {
@@ -1785,8 +1830,29 @@ textarea.form-control {
 }
 
 @media (max-width: 480px) {
+    .hero-slider-container {
+        height: 460px;
+    }
+    
+    .slide-img {
+        height: 200px;
+    }
+    
+    .slider-btn {
+        top: 100px;
+    }
+    
+    .slide-content {
+        padding: 1.5rem 1rem;
+    }
+    
     .slide-content h1 {
-        font-size: 2rem;
+        font-size: 1.45rem;
+    }
+    
+    .slide-content p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
     }
     
     .logo-title {
