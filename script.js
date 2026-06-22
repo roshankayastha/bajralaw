@@ -637,10 +637,12 @@ function initWorldClock() {
     if (!ktmTimeEl) return;
 
     const cities = [
-        { id: 'newyork', timeZone: 'America/New_York' },
-        { id: 'london', timeZone: 'Europe/London' },
+        { id: 'geneva', timeZone: 'Europe/Zurich' },
         { id: 'singapore', timeZone: 'Asia/Singapore' },
-        { id: 'sydney', timeZone: 'Australia/Sydney' }
+        { id: 'newdelhi', timeZone: 'Asia/Kolkata' },
+        { id: 'hague', timeZone: 'Europe/Amsterdam' },
+        { id: 'beijing', timeZone: 'Asia/Shanghai' },
+        { id: 'london', timeZone: 'Europe/London' }
     ];
 
     const timeOptions = {
