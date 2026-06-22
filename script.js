@@ -399,6 +399,9 @@ document.addEventListener('DOMContentLoaded', () => {
             drawer.classList.remove('is-active');
         });
     });
+
+    // 10. World Clock Initialization
+    initWorldClock();
 });
 
 /**
@@ -624,4 +627,111 @@ function loadGlobalSettings() {
         .catch(error => {
             console.warn('Error loading global settings, using fallback HTML:', error);
         });
+}
+
+/**
+ * Helper: Dynamic World Clock for Foreign Legal Counsel Page
+ */
+function initWorldClock() {
+    const ktmTimeEl = document.getElementById('time-kathmandu');
+    if (!ktmTimeEl) return;
+
+    const cities = [
+        { id: 'newyork', timeZone: 'America/New_York' },
+        { id: 'london', timeZone: 'Europe/London' },
+        { id: 'singapore', timeZone: 'Asia/Singapore' },
+        { id: 'sydney', timeZone: 'Australia/Sydney' }
+    ];
+
+    const timeOptions = {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    };
+
+    const dateOptions = {
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric'
+    };
+
+    function updateClocks() {
+        const now = new Date();
+
+        // Kathmandu HQ
+        try {
+            ktmTimeEl.textContent = new Intl.DateTimeFormat('en-US', {
+                ...timeOptions,
+                timeZone: 'Asia/Kathmandu'
+            }).format(now);
+
+            const ktmDateEl = document.getElementById('date-kathmandu');
+            if (ktmDateEl) {
+                ktmDateEl.textContent = new Intl.DateTimeFormat('en-US', {
+                    ...dateOptions,
+                    timeZone: 'Asia/Kathmandu'
+                }).format(now);
+            }
+        } catch (e) {
+            console.error('Error formatting Kathmandu time', e);
+        }
+
+        // Other client zones
+        cities.forEach(city => {
+            try {
+                const timeEl = document.getElementById(`time-${city.id}`);
+                const dateEl = document.getElementById(`date-${city.id}`);
+                const offsetEl = document.getElementById(`offset-${city.id}`);
+
+                if (timeEl) {
+                    timeEl.textContent = new Intl.DateTimeFormat('en-US', {
+                        ...timeOptions,
+                        timeZone: city.timeZone
+                    }).format(now);
+                }
+
+                if (dateEl) {
+                    dateEl.textContent = new Intl.DateTimeFormat('en-US', {
+                        ...dateOptions,
+                        timeZone: city.timeZone
+                    }).format(now);
+                }
+
+                if (offsetEl) {
+                    offsetEl.textContent = getTimeDifference('Asia/Kathmandu', city.timeZone);
+                }
+            } catch (e) {
+                console.error(`Error formatting time for ${city.id}`, e);
+            }
+        });
+    }
+
+    function getTimeDifference(baseZone, targetZone) {
+        try {
+            const now = new Date();
+            const baseStr = now.toLocaleString('en-US', { timeZone: baseZone });
+            const targetStr = now.toLocaleString('en-US', { timeZone: targetZone });
+
+            const d1 = new Date(baseStr);
+            const d2 = new Date(targetStr);
+
+            const diffMs = d2 - d1;
+            const diffMins = Math.round(diffMs / 60000);
+
+            const diffHours = Math.floor(Math.abs(diffMins) / 60);
+            const remainingMins = Math.abs(diffMins) % 60;
+
+            const sign = diffMins >= 0 ? '+' : '-';
+
+            if (diffMins === 0) return '0h';
+            if (remainingMins === 0) return `${sign}${diffHours}h`;
+            return `${sign}${diffHours}h ${remainingMins}m`;
+        } catch (e) {
+            return '--';
+        }
+    }
+
+    updateClocks();
+    setInterval(updateClocks, 1000);
 }
