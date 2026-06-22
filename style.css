@@ -1258,6 +1258,43 @@ img {
     border: 1px solid var(--border-color);
 }
 
+/* Image hover drawer modal effect */
+.image-drawer-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    box-shadow: 20px 20px 0 var(--bg-alt);
+    border: 1px solid var(--border-color);
+}
+
+.image-drawer-wrapper img {
+    box-shadow: none;
+    border: none;
+    display: block;
+}
+
+.image-drawer-modal {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(15, 43, 32, 0.95);
+    color: var(--bg-white);
+    padding: 1.25rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    transition: bottom 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 10;
+    border-top: 2px solid var(--accent-color);
+    box-sizing: border-box;
+}
+
+.image-drawer-wrapper:hover .image-drawer-modal,
+.image-drawer-wrapper.is-active .image-drawer-modal {
+    bottom: 0;
+}
+
 .cta-banner {
     background-color: var(--primary-color);
     color: var(--bg-white);

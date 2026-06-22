@@ -384,6 +384,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 teamGrid.innerHTML = '<p class="error-message">Error loading team members. Please try again later.</p>';
             });
     }
+
+    // 9. Interactive Image Hover Drawer Modal (Mobile support)
+    const drawers = document.querySelectorAll('.image-drawer-wrapper');
+    drawers.forEach(drawer => {
+        drawer.addEventListener('click', (e) => {
+            e.stopPropagation();
+            drawer.classList.toggle('is-active');
+        });
+    });
+    
+    document.addEventListener('click', () => {
+        drawers.forEach(drawer => {
+            drawer.classList.remove('is-active');
+        });
+    });
 });
 
 /**
