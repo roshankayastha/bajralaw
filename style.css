@@ -1236,8 +1236,25 @@ img {
     margin-top: 0.25rem;
 }
 
+.practice-detail-image {
+    position: relative;
+}
+
+.practice-detail-image::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100px;
+    height: 100px;
+    border-top: 3px solid var(--accent-color);
+    border-left: 3px solid var(--accent-color);
+    z-index: -1;
+}
+
 .practice-detail-image img {
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    box-shadow: 20px 20px 0 var(--bg-alt);
     border: 1px solid var(--border-color);
 }
 
@@ -1666,6 +1683,11 @@ textarea.form-control {
     
     .practice-detail-block:nth-child(even) .practice-detail-image {
         order: 2;
+    }
+    
+    .practice-detail-image {
+        max-width: 600px;
+        margin: 0 auto;
     }
     
     .contact-grid {
