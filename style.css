@@ -1279,15 +1279,17 @@ img {
     bottom: -100%;
     left: 0;
     width: 100%;
-    background-color: rgba(15, 43, 32, 0.95);
-    color: var(--bg-white);
-    padding: 1.25rem;
-    font-size: 0.85rem;
-    line-height: 1.5;
+    background-color: rgba(15, 43, 32, 0.15);
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0.3rem 0.5rem;
+    font-size: 0.62rem;
+    font-style: italic;
+    line-height: 1.35;
     transition: bottom 0.45s cubic-bezier(0.25, 1, 0.5, 1);
     z-index: 10;
-    border-top: 2px solid var(--accent-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     box-sizing: border-box;
+    backdrop-filter: blur(2px);
 }
 
 .image-drawer-wrapper:hover .image-drawer-modal,
