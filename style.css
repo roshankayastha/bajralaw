@@ -252,7 +252,7 @@ img {
     position: relative;
     width: 45px;
     height: 45px;
-    background-color: var(--primary-color);
+    background-color: #0a1f44;
     border: 2px solid var(--accent-color);
     display: flex;
     align-items: center;
@@ -293,7 +293,7 @@ img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background-color: var(--primary-color);
+    background-color: #0a1f44;
     transform: scale(1.4);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
@@ -891,7 +891,7 @@ img {
 
 .footer-about .logo-icon {
     border-color: var(--accent-color);
-    background-color: var(--primary-color);
+    background-color: #0a1f44;
 }
 
 .footer-about .logo-title {
