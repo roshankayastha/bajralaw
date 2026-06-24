@@ -61,40 +61,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Transparent-to-Opaque Header on Scroll
     const header = document.querySelector('.header');
+    const hero   = document.querySelector('.hero-slider-container');
 
-    // Fade over the height of the hero slider (or 300px on subpages)
-    const hero = document.querySelector('.hero-slider-container');
-    const SCROLL_THRESHOLD = hero ? hero.offsetHeight * 0.6 : 300;
+    if (hero) {
+        // ── Homepage only: fade from transparent → opaque as hero scrolls past ──
+        const SCROLL_THRESHOLD = hero.offsetHeight * 0.6;
 
-    function updateHeaderOpacity() {
-        const scrollY = window.scrollY;
-        if (scrollY >= SCROLL_THRESHOLD) {
-            // Fully opaque — let CSS class handle it, remove inline overrides
-            header.classList.add('opaque');
-            header.classList.remove('is-transparent');
-            header.style.backgroundColor = '';
-            header.style.boxShadow = '';
-        } else {
-            header.classList.remove('opaque');
-            const ratio = scrollY / SCROLL_THRESHOLD;          // 0 → 1
-            const alpha = (ratio * 0.95).toFixed(3);           // 0 → 0.95
-            const shadowAlpha = (ratio * 0.1).toFixed(3);      // 0 → 0.10
-            header.style.backgroundColor = `rgba(255, 255, 255, ${alpha})`;
-            header.style.boxShadow = scrollY > 10
-                ? `0 4px 24px rgba(10, 31, 68, ${shadowAlpha})`
-                : 'none';
-
-            // Keep text white while header is still mostly transparent
-            if (ratio < 0.45) {
-                header.classList.add('is-transparent');
-            } else {
+        function updateHeaderOpacity() {
+            const scrollY = window.scrollY;
+            if (scrollY >= SCROLL_THRESHOLD) {
+                header.classList.add('opaque');
                 header.classList.remove('is-transparent');
+                header.style.backgroundColor = '';
+                header.style.boxShadow = '';
+            } else {
+                header.classList.remove('opaque');
+                const ratio       = scrollY / SCROLL_THRESHOLD;
+                const alpha       = (ratio * 0.95).toFixed(3);
+                const shadowAlpha = (ratio * 0.10).toFixed(3);
+                header.style.backgroundColor = `rgba(255, 255, 255, ${alpha})`;
+                header.style.boxShadow = scrollY > 10
+                    ? `0 4px 24px rgba(10, 31, 68, ${shadowAlpha})`
+                    : 'none';
+
+                // White nav text while the background is still mostly transparent
+                if (ratio < 0.45) {
+                    header.classList.add('is-transparent');
+                } else {
+                    header.classList.remove('is-transparent');
+                }
             }
         }
-    }
 
-    window.addEventListener('scroll', updateHeaderOpacity, { passive: true });
-    updateHeaderOpacity(); // run once on load
+        window.addEventListener('scroll', updateHeaderOpacity, { passive: true });
+        updateHeaderOpacity(); // run once on page load
+
+    } else {
+        // ── All other pages: start fully opaque immediately ──
+        header.classList.add('opaque');
+    }
 
     // 3. Highlight Active Navigation Item Based on URL
     const currentPath = window.location.pathname;
