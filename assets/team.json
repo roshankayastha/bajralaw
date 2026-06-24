@@ -22,18 +22,11 @@
       "email": "t.khatun@bajralaw.com"
     },
     {
-      "name": "Pooja Bajracharya",
-      "role": "Associate - Corporate Compliance",
-      "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=500&q=80",
-      "bio": "Focuses on regulatory compliance, joint ventures, and drafting of corporate agreements.",
-      "email": "p.bajracharya@bajralaw.com"
-    },
-    {
-      "name": "Arjun KC",
-      "role": "Partner",
+      "name": "Keshab Dhital",
+      "role": "Associate",
       "image": "/assets/craiyon_105040_attorney.png",
-      "bio": "Arjun KC is a senior advocate in law.",
-      "email": "arjun@bajralaw.com"
+      "bio": "Keshav Dhital is a senior advocate in law.",
+      "email": "keshav@bajralaw.com"
     }
   ]
 }
