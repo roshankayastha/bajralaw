@@ -895,6 +895,17 @@ body.has-fixed-header main {
     color: var(--accent-color);
 }
 
+/* Make the button visible on the dark background */
+.why-choose-us-section .btn-outline {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.why-choose-us-section .btn-outline:hover {
+    background-color: #ffffff;
+    color: var(--primary-color);
+}
+
 .why-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
