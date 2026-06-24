@@ -223,19 +223,27 @@ img {
 
 /* Header & Navigation */
 .header {
-    background-color: rgba(255, 255, 255, 0.72);
+    background-color: rgba(255, 255, 255, 0);
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
-    position: sticky;
-    top: 0;
+    box-shadow: none;
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    right: 0;
+    width: 100%;
     z-index: 1000;
-    transition: background-color 0.35s ease, box-shadow 0.35s ease;
+    transition: background-color 0.1s linear, box-shadow 0.1s linear;
 }
 
-.header.shrink {
-    background-color: rgba(255, 255, 255, 0.88);
+.header.opaque {
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 4px 24px rgba(10, 31, 68, 0.1);
+}
+
+/* Push page content down on pages WITHOUT a full-height hero */
+body.has-fixed-header main {
+    padding-top: var(--header-height);
 }
 
 .navbar {
@@ -496,7 +504,7 @@ img {
 /* Hero Slider */
 .hero-slider-container {
     position: relative;
-    height: calc(100vh - var(--header-height) - var(--topbar-height));
+    height: calc(100vh - var(--topbar-height));
     min-height: 500px;
     overflow: hidden;
     background-color: var(--primary-dark);
@@ -1750,6 +1758,16 @@ textarea.form-control {
     
     .topbar {
         display: none; /* Hide topbar on mobile to save vertical space */
+    }
+
+    /* Fixed header sits at the very top when topbar is hidden */
+    .header {
+        top: 0;
+    }
+
+    /* Hero fills full viewport on mobile since topbar is gone */
+    .hero-slider-container {
+        height: 100vh;
     }
     
     /* Hamburger menu displays */
