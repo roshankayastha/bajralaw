@@ -837,7 +837,7 @@ body.has-fixed-header main {
 /* Why Choose Us Section */
 .why-choose-us-section {
     position: relative;
-    background-image: url('assets/trust_handshake_bg.jpg');
+    background-image: url('assets/trust_handshake_bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
