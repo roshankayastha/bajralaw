@@ -2314,6 +2314,12 @@ body.modal-open {
     gap: 2.5rem;
 }
 
+.practice-overview-grid .practice-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 .practice-overview-card {
     background: var(--bg-white);
     border: 1px solid var(--border-color);
@@ -2321,6 +2327,8 @@ body.modal-open {
     transition: var(--transition);
     display: flex;
     flex-direction: column;
+    height: 100%;
+    flex: 1;
 }
 
 .practice-overview-card:hover {
