@@ -19,6 +19,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /home/yogaadve/bajralaw.com.np/
-          include: |
-            **
-            **/.*
+          dangerous-clean-slate: true
