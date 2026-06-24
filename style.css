@@ -1928,6 +1928,41 @@ textarea.form-control {
         font-size: 1.1rem;
     }
 
+    /* Fix transparent header overrides when mobile menu is open */
+    body.menu-open .header {
+        background-color: var(--bg-white) !important;
+        box-shadow: 0 4px 24px rgba(10, 31, 68, 0.1) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+    
+    body.menu-open .header .logo-title {
+        color: var(--primary-color) !important;
+        text-shadow: none !important;
+    }
+    
+    body.menu-open .header .logo-sub {
+        color: var(--text-light) !important;
+        text-shadow: none !important;
+    }
+    
+    body.menu-open .header .hamburger-inner,
+    body.menu-open .header .hamburger-inner::before,
+    body.menu-open .header .hamburger-inner::after {
+        background-color: var(--primary-color) !important;
+        box-shadow: none !important;
+    }
+    
+    body.menu-open .header .nav-menu .nav-link {
+        color: var(--primary-color) !important;
+        text-shadow: none !important;
+    }
+    
+    body.menu-open .header .nav-menu .nav-link:hover,
+    body.menu-open .header .nav-menu .nav-link.active {
+        color: var(--accent-color) !important;
+    }
+
     /* Mobile dropdown: inline, not floating */
     .nav-dropdown {
         position: static;
