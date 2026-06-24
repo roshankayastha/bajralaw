@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (scrollY >= SCROLL_THRESHOLD) {
             // Fully opaque — let CSS class handle it, remove inline overrides
             header.classList.add('opaque');
+            header.classList.remove('is-transparent');
             header.style.backgroundColor = '';
             header.style.boxShadow = '';
         } else {
@@ -82,6 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
             header.style.boxShadow = scrollY > 10
                 ? `0 4px 24px rgba(10, 31, 68, ${shadowAlpha})`
                 : 'none';
+
+            // Keep text white while header is still mostly transparent
+            if (ratio < 0.45) {
+                header.classList.add('is-transparent');
+            } else {
+                header.classList.remove('is-transparent');
+            }
         }
     }
 

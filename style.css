@@ -189,6 +189,10 @@ img {
     display: flex;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Stick topbar so fixed header never loses its anchor point */
+    position: sticky;
+    top: 0;
+    z-index: 1001;
 }
 
 .topbar-content {
@@ -347,6 +351,37 @@ body.has-fixed-header main {
     letter-spacing: 0.05em;
     padding: 0.5rem 0;
     position: relative;
+    transition: color 0.3s ease;
+}
+
+/* ── Transparent-header overrides: white text over hero ── */
+.header.is-transparent .nav-link {
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.header.is-transparent .nav-link:hover,
+.header.is-transparent .nav-link.active {
+    color: #ffffff;
+}
+
+.header.is-transparent .logo-title {
+    color: #ffffff;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+    transition: color 0.3s ease;
+}
+
+.header.is-transparent .logo-sub {
+    color: rgba(255, 255, 255, 0.75);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    transition: color 0.3s ease;
+}
+
+.header.is-transparent .hamburger-inner,
+.header.is-transparent .hamburger-inner::before,
+.header.is-transparent .hamburger-inner::after {
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .nav-link::after {
