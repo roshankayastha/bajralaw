@@ -1,39 +1,32 @@
 {
   "members": [
     {
-      "name": "Bijaya Bajra",
-      "role": "Founder & Senior Partner",
+      "name": "Ashish Poudyal",
+      "role": "Founder",
       "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&h=500&q=80",
       "bio": "Over 20 years of experience in corporate law, FDI projects, and telecom sector regulations in Nepal.",
-      "email": "b.bajra@bajralaw.com"
+      "email": "bajralaw@gmail.com"
     },
     {
-      "name": "Reema Shrestha",
-      "role": "Partner - Banking & M&A",
-      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=500&q=80",
-      "bio": "Specializes in cross-border acquisitions, corporate financing structures, and foreign investments.",
-      "email": "r.shrestha@bajralaw.com"
-    },
-    {
-      "name": "Aayush Neupane",
-      "role": "Senior Associate - Litigation",
+      "name": "Rhishav Devkota",
+      "role": "Senior Associate",
       "image": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&h=500&q=80",
       "bio": "Advises clients on commercial litigation, IP infringement cases, and arbitration procedures.",
-      "email": "a.neupane@bajralaw.com"
+      "email": "r.devkota@bajralaw.com"
     },
     {
-      "name": "Pooja Bajracharya",
-      "role": "Associate - Corporate Compliance",
-      "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&h=500&q=80",
-      "bio": "Focuses on regulatory compliance, joint ventures, and drafting of corporate agreements.",
-      "email": "p.bajracharya@bajralaw.com"
+      "name": "Tejaswi Khatun",
+      "role": "Associate",
+      "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=500&q=80",
+      "bio": "Specializes in cross-border acquisitions, corporate financing structures, and foreign investments.",
+      "email": "t.khatun@bajralaw.com"
     },
     {
-      "name": "Arjun KC",
-      "role": "Partner",
+      "name": "Keshab Dhital",
+      "role": "Associate",
       "image": "/assets/craiyon_105040_attorney.png",
-      "bio": "Arjun KC is a senior advocate in law.",
-      "email": "arjun@bajralaw.com"
+      "bio": "Keshav Dhital is a senior advocate in law.",
+      "email": "keshav@bajralaw.com"
     }
   ]
 }
