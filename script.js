@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hero   = document.querySelector('.hero-slider-container');
 
     if (hero) {
-        // ── Homepage only: fade from transparent → opaque as hero scrolls past ──
+        // ── Homepage only: fade from 100% transparent → opaque as hero scrolls past ──
         const SCROLL_THRESHOLD = hero.offsetHeight * 0.6;
 
         function updateHeaderOpacity() {
@@ -74,17 +74,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 header.classList.remove('is-transparent');
                 header.style.backgroundColor = '';
                 header.style.boxShadow = '';
+                header.style.backdropFilter = '';
+                header.style.webkitBackdropFilter = '';
+            } else if (scrollY === 0) {
+                // Perfectly at top — fully transparent, no blur
+                header.classList.remove('opaque');
+                header.classList.add('is-transparent');
+                header.style.backgroundColor = 'transparent';
+                header.style.boxShadow = 'none';
+                header.style.backdropFilter = 'none';
+                header.style.webkitBackdropFilter = 'none';
             } else {
                 header.classList.remove('opaque');
                 const ratio       = scrollY / SCROLL_THRESHOLD;
                 const alpha       = (ratio * 0.95).toFixed(3);
                 const shadowAlpha = (ratio * 0.10).toFixed(3);
+                const blur        = (ratio * 20).toFixed(1);
                 header.style.backgroundColor = `rgba(255, 255, 255, ${alpha})`;
-                header.style.boxShadow = scrollY > 10
-                    ? `0 4px 24px rgba(10, 31, 68, ${shadowAlpha})`
-                    : 'none';
+                header.style.boxShadow = `0 4px 24px rgba(10, 31, 68, ${shadowAlpha})`;
+                header.style.backdropFilter = `saturate(180%) blur(${blur}px)`;
+                header.style.webkitBackdropFilter = `saturate(180%) blur(${blur}px)`;
 
-                // White nav text while the background is still mostly transparent
+                // White nav text while header is still mostly transparent
                 if (ratio < 0.45) {
                     header.classList.add('is-transparent');
                 } else {

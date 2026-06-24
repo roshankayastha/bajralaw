@@ -227,9 +227,7 @@ img {
 
 /* Header & Navigation */
 .header {
-    background-color: rgba(255, 255, 255, 0);
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background-color: transparent;
     box-shadow: none;
     position: fixed;
     top: var(--topbar-height);
@@ -237,11 +235,14 @@ img {
     right: 0;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.1s linear, box-shadow 0.1s linear;
+    transition: background-color 0.1s linear, box-shadow 0.1s linear,
+                backdrop-filter 0.1s linear, -webkit-backdrop-filter 0.1s linear;
 }
 
 .header.opaque {
     background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
     box-shadow: 0 4px 24px rgba(10, 31, 68, 0.1);
 }
 
