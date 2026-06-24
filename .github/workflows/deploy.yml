@@ -19,8 +19,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
           server-dir: /home/yogaadve/bajralaw.com.np/
-          exclude: |
-            **/.git*
-            **/.git*/**
-            **/node_modules/**
-          dangerous-clean-slate: true
+          include: |
+            **
+            **/.*
