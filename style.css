@@ -792,6 +792,26 @@ body.has-fixed-header main {
     margin-bottom: 1rem;
 }
 
+/* Section heading link — e.g. "Our Practice Areas" → practice.html */
+.section-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.section-title-link:hover {
+    color: var(--accent-color);
+}
+
+/* Card h3 title links */
+.card-title-link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+.card-title-link:hover {
+    color: var(--accent-color);
+}
+
 .practice-card p {
     font-size: 0.95rem;
     color: var(--text-light);
