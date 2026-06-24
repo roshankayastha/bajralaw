@@ -2629,6 +2629,158 @@ body.modal-open {
     }
 }
 
+/* ==========================================================================
+   COMPARISON TABLE & SERVICE GUIDE STYLES
+   ========================================================================== */
+
+.comparison-table-wrapper {
+    overflow-x: auto;
+    margin: 3rem 0;
+    box-shadow: 0 10px 30px rgba(10, 31, 68, 0.04);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-white);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    text-align: left;
+    min-width: 600px;
+}
+
+.comparison-table th {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.comparison-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background-color: var(--bg-light);
+}
+
+.comparison-table tbody tr:hover {
+    background-color: rgba(201, 168, 76, 0.06);
+}
+
+.comparison-table td a {
+    color: var(--primary-color);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    border-bottom: 1px solid transparent;
+}
+
+.comparison-table td a:hover {
+    color: var(--accent-dark);
+    border-bottom-color: var(--accent-dark);
+}
+
+/* Special Featured Styling for the 7th Service Card on Homepage */
+.practice-card.featured-guide-card {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.practice-card.featured-guide-card::before {
+    background-color: var(--accent-color);
+}
+
+.practice-card.featured-guide-card h3 {
+    color: var(--bg-white);
+}
+
+.practice-card.featured-guide-card p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.practice-card.featured-guide-card .practice-icon {
+    color: var(--accent-color);
+}
+
+.practice-card.featured-guide-card .practice-link {
+    color: var(--accent-color);
+}
+
+.practice-card.featured-guide-card .practice-link:hover {
+    color: var(--bg-white);
+}
+
+/* Priority Areas on About Page */
+.priority-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.priority-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 2.5rem 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.priority-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--accent-color);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: var(--transition);
+}
+
+.priority-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(10, 31, 68, 0.05);
+    border-color: var(--accent-color);
+}
+
+.priority-card:hover::before {
+    transform: scaleY(1);
+}
+
+.priority-icon {
+    color: var(--accent-color);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+}
+
+.priority-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.priority-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+
+
 
 
 
